@@ -1,6 +1,6 @@
 ---
 title: "Yiwei(Jerry) Huang"
-image: "enterprise.png"
+image: "suit.png"
 about:
     template: jolla
     links:
