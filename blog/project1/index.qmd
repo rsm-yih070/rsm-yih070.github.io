@@ -364,6 +364,7 @@ axes[1].set_xlabel('Donation Amount')
 
 plt.tight_layout()
 plt.show()
+
 ```
 
 ## Simulation Experiment
