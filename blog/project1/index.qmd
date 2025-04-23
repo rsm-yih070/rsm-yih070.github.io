@@ -330,6 +330,7 @@ _I run a t-test and a regression of donation amount on treatment. The treatment 
 ```{python}
 model = rsm.model.regress(data = df, rvar = 'amount', evar = 'treatment')
 model.summary()
+
 ```
 
 From this analysis, we learn that individuals who received the matching grant treatment donated slightly more on average than those in the control group, but the difference is only marginally statistically significant (p = 0.063). The treatment effect estimate suggests that the treatment group gave about 15 cents more per person than the control group, which is a small increase. This result implies that the primary effect of the matching grant is likely driven by increasing the number of people who give, rather than substantially increasing the donation amounts of those who would already have donated. It highlights that while the match offer motivates more people to donate, it doesn't strongly influence how much they give on average.
