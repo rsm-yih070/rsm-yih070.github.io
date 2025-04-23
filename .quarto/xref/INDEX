@@ -16,5 +16,11 @@
   },
   "blog/project2/index.qmd": {
     "index.html": "edd41b21"
+  },
+  "hw1_questions.qmd": {
+    "hw1_questions.html": "9febfa63"
+  },
+  "blog/project1/hw1_questions.qmd": {
+    "hw1_questions.html": "938a4cec"
   }
 }
