@@ -26,7 +26,7 @@
         "\n",
         "_Read in data._"
       ],
-      "id": "58ebb880"
+      "id": "08eae49c"
     },
     {
       "cell_type": "code",
@@ -35,7 +35,7 @@
         "import pandas as pd\n",
         "df = pd.read_csv('blueprinty.csv')"
       ],
-      "id": "f994b29a",
+      "id": "3ed9ed11",
       "execution_count": null,
       "outputs": []
     },
@@ -45,7 +45,7 @@
       "source": [
         "_Compare histograms and means of number of patents by customer status. What do we observe?_"
       ],
-      "id": "988426ff"
+      "id": "1fcab405"
     },
     {
       "cell_type": "code",
@@ -75,7 +75,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "0c96395b",
+      "id": "a46362d5",
       "execution_count": null,
       "outputs": []
     },
@@ -98,7 +98,7 @@
         "\n",
         "_Compare regions and ages by customer status. What do we observe?_"
       ],
-      "id": "6d18fd61"
+      "id": "d1431290"
     },
     {
       "cell_type": "code",
@@ -120,7 +120,7 @@
         "\n",
         "age_by_customer"
       ],
-      "id": "6fe4c2e2",
+      "id": "cd3c906b",
       "execution_count": null,
       "outputs": []
     },
@@ -175,7 +175,7 @@
         "_The following code defines a log-likelihood function for the Poisson model. It takes a value of 𝜆 and a vector of observed counts \n",
         "𝑌, and calculates how likely the observed data are under that parameter. This function will later be used for estimating the most likely value of 𝜆 given the data, using maximum likelihood estimation._\n"
       ],
-      "id": "61cbf1a5"
+      "id": "2999fcab"
     },
     {
       "cell_type": "code",
@@ -191,7 +191,7 @@
         "    log_likelihood = -n * lambda_ + sum_Y * np.log(lambda_) - np.sum(gammaln(Y + 1))\n",
         "    return log_likelihood"
       ],
-      "id": "8cebe6d0",
+      "id": "e7215bba",
       "execution_count": null,
       "outputs": []
     },
@@ -201,7 +201,7 @@
       "source": [
         "_The following code uses the log-likelihood function to plot how the likelihood changes across a range of λ values. It helps visualize which values of λ fit the observed data best by showing where the log-likelihood reaches its peak._"
       ],
-      "id": "f5da417e"
+      "id": "c8ccc45e"
     },
     {
       "cell_type": "code",
@@ -223,7 +223,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "9bf3333e",
+      "id": "282cfa0e",
       "execution_count": null,
       "outputs": []
     },
@@ -273,7 +273,7 @@
         "\n",
         "_The following code uses a numerical optimizer to find the value of 𝜆 that maximizes the log-likelihood function. This gives us the maximum likelihood estimate (MLE) for 𝜆 based on the observed data._\n"
       ],
-      "id": "f2812b94"
+      "id": "588bcc02"
     },
     {
       "cell_type": "code",
@@ -288,7 +288,7 @@
         "lambda_mle = result.x\n",
         "lambda_mle"
       ],
-      "id": "6d3b68c2",
+      "id": "4d59ebbd",
       "execution_count": null,
       "outputs": []
     },
@@ -303,7 +303,7 @@
         "The following code updates the log-likelihood function to handle a Poisson regression model with covariates. Instead of using a constant \n",
         "𝜆,it models 𝜆𝑖 as an exponential function of predictors 𝑋𝑖 and coefficients 𝛽. This allows the expected count to vary based on the characteristics of each observation.\n"
       ],
-      "id": "62f2c700"
+      "id": "c17f67fe"
     },
     {
       "cell_type": "code",
@@ -316,7 +316,7 @@
         "    lam = np.exp(eta)\n",
         "    return np.sum(Y * eta - lam - gammaln(Y + 1))"
       ],
-      "id": "3cfdb010",
+      "id": "a3d709d6",
       "execution_count": null,
       "outputs": []
     },
@@ -326,7 +326,7 @@
       "source": [
         "_The following code uses numerical optimization to estimate the 𝛽 coefficients in a Poisson regression model with covariates. It sets up the design matrix with an intercept, age, age squared, region dummies, and a customer indicator. After finding the maximum likelihood estimates, it uses the inverse of the Hessian matrix to calculate standard errors and summarizes the results in a table._\n"
       ],
-      "id": "7aecfa6d"
+      "id": "f45751b2"
     },
     {
       "cell_type": "code",
@@ -364,7 +364,7 @@
         "\n",
         "manual_results_table.round(3)"
       ],
-      "id": "1e76a33c",
+      "id": "8415492c",
       "execution_count": null,
       "outputs": []
     },
@@ -374,7 +374,7 @@
       "source": [
         "_Check results using Python sm.GLM() function._"
       ],
-      "id": "bbff4af5"
+      "id": "812122c3"
     },
     {
       "cell_type": "code",
@@ -397,7 +397,7 @@
         "glm_summary = poisson_results.summary2().tables[1].round(3)\n",
         "display(glm_summary)"
       ],
-      "id": "73d21423",
+      "id": "fffe68c6",
       "execution_count": null,
       "outputs": []
     },
@@ -422,7 +422,7 @@
         "\n",
         "_The following code estimates the effect of using Blueprinty's software by comparing predicted patent counts for two scenarios: one where no firm is a customer (X_0), and one where all firms are customers (X_1). By calculating the average difference in predicted patents between these two scenarios, we get a clear, interpretable estimate of the software's impact on patent success._\n"
       ],
-      "id": "51bb8de7"
+      "id": "fb2d4320"
     },
     {
       "cell_type": "code",
@@ -440,7 +440,7 @@
         "average_diff = np.mean(diff)\n",
         "average_diff"
       ],
-      "id": "dc6f5c2a",
+      "id": "0eb439ae",
       "execution_count": null,
       "outputs": []
     },
@@ -481,7 +481,7 @@
         "\n",
         "_The following code performs an exploratory analysis of Airbnb data, assuming the number of reviews reflects the number of bookings. It begins by cleaning the data, dropping rows with missing values in key variables. Then, it fits a Poisson regression model to examine how listing features—such as price, room type, and review scores—relate to the number of reviews. The resulting model coefficients are used to interpret how each variable influences booking activity._\n"
       ],
-      "id": "11b92cff"
+      "id": "77f32b3d"
     },
     {
       "cell_type": "code",
@@ -533,7 +533,7 @@
         "\n",
         "summary_stats"
       ],
-      "id": "dfa88cc6",
+      "id": "8a4f3c83",
       "execution_count": null,
       "outputs": []
     },
@@ -559,7 +559,7 @@
         "\n",
         "Stronger predictors likely interact or relate non-linearly, which a regression model can explore better.\n"
       ],
-      "id": "46be11fb"
+      "id": "955e39aa"
     },
     {
       "cell_type": "code",
@@ -581,7 +581,7 @@
         "poisson_summary = poisson_results.summary2().tables[1].round(3)\n",
         "display(poisson_summary)"
       ],
-      "id": "cac1fb18",
+      "id": "f9966243",
       "execution_count": null,
       "outputs": []
     },
@@ -597,7 +597,7 @@
         "\n",
         "Price has a very small but statistically significant negative effect — likely due to higher prices deterring short-term bookings.\n"
       ],
-      "id": "c9d412bf"
+      "id": "0940e997"
     }
   ],
   "metadata": {
